@@ -4,6 +4,8 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import SceneInit from './lib/SceneInit';
 import { GUI } from 'dat.gui';
+// component imports
+import Navbar from './components/Navbar';
 
 function App() {
   // when component renders, call SceneInit passing in HTML canvas
@@ -40,6 +42,7 @@ function App() {
 
   return (
     <div>
+      <Navbar />
       <canvas id="myThreeJsCanvas" />
     </div>
   );

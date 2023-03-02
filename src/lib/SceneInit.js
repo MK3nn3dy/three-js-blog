@@ -51,6 +51,8 @@ export default class SceneInit {
       // smooth edges
       antialias: true,
     });
+    // set renderer background color
+    this.renderer.setClearColor(0x111111, 1);
     // set renderer to client size as well as camera
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     // append the renderer dom element to the html body
@@ -66,13 +68,13 @@ export default class SceneInit {
     document.body.appendChild(this.stats.dom);
 
     // ambient light which is for the whole scene
-    this.ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
+    this.ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
     this.ambientLight.castShadow = true;
     this.ambientLight.position.set(0, 90, 0);
     this.scene.add(this.ambientLight);
 
     // directional light 1 - front right
-    this.directionalLight = new THREE.DirectionalLight(0x4488aa, 2);
+    this.directionalLight = new THREE.DirectionalLight(0x4488aa, 3);
     this.directionalLight.position.set(40, 200, 300);
     this.directionalLight.castShadow = true;
     this.scene.add(this.directionalLight);

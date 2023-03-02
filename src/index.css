@@ -1,1 +1,10 @@
 /* App.css deleted, will do all styling in index.css - Mat Kennedy */
+
+body {
+    background-color: rgb(216, 222, 228);
+}
+
+nav {
+    color: rgb(42, 39, 56);
+    overflow: hidden !important;
+}
