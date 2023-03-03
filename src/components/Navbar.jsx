@@ -1,10 +1,12 @@
 const Navbar = () => {
 
     return (
-        <nav className="container-md p-3 navbar-container">
-            <h1 id="mk" className="h1">Mathew Kennedy</h1>
-            <p>Three JS Blog</p>
-        </nav>
+        <div className="position-absolute p-4 navbar-container">
+            <nav>
+                <h1 id="mk" className="h1">Mat Kennedy</h1>
+                <p id="blog-title">Three JS Blog</p>
+            </nav>
+        </div>
     )
 }
 

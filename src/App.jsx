@@ -6,6 +6,7 @@ import SceneInit from './lib/SceneInit';
 import { GUI } from 'dat.gui';
 // component imports
 import Navbar from './components/Navbar';
+import ModelDescription from './components/ModelDescription';
 
 function App() {
   // when component renders, call SceneInit passing in HTML canvas
@@ -44,6 +45,7 @@ function App() {
     <div>
       <Navbar />
       <canvas id="myThreeJsCanvas" />
+      <ModelDescription />
     </div>
   );
 }

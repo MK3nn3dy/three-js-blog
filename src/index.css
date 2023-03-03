@@ -1,10 +1,117 @@
 /* App.css deleted, will do all styling in index.css - Mat Kennedy */
 
-body {
-    background-color: rgb(216, 222, 228);
+/* fonts */
+@font-face {
+    font-family: cleanUp;
+    src: url(../assets/fonts/cleanup.ttf);
 }
 
-nav {
-    color: rgb(42, 39, 56);
-    overflow: hidden !important;
+/* top nav bar and title */
+.navbar-container {
+    font-family: cleanUp;
+    color: rgb(247, 229, 173);
 }
+
+#mk {
+    color: rgb(247, 229, 173);
+    font-size: 4.4rem;
+}
+
+#mk::after {
+    position: absolute;
+    content: '';
+    width: 30%;
+    height: 1px;
+    background-color: rgb(83, 115, 128);
+    left: 50%;
+    transform: translateX(-50%);
+    top: 6.3rem;
+}
+
+#blog-title {
+    color: rgb(156, 214, 236);
+    font-size: 4rem;
+    line-height: 3rem;
+}
+
+
+/* Model Description Modal */
+
+.model-description-panel-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    padding-bottom: 2rem;
+    z-index: 2;
+}
+
+.model-description-panel {
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: 100%;
+    width: 100%;
+    max-width: 960px;
+    color: black;
+    background-color: rgb(212, 201, 166);
+    border-radius: .2rem;
+    overflow: hidden;
+}
+
+.model-title {
+    margin-top: 0.3rem;
+    font-size: 2rem;
+    font-family: cleanUp;
+    font-weight: bold;
+}
+
+.model-description {
+    position: relative;
+    width: 95%;
+    height: 90%;
+    overflow-y: scroll;
+}
+
+/* Hide scroll bars on description, will add nice custom arrows as scroll hints later */
+.model-description::-webkit-scrollbar {
+    width: 0;
+}
+
+/* queries */
+
+/* Header and title shrinks, horizontal breakpoints */
+
+@media only screen and (max-width: 1050px){
+    #mk {
+        font-size: 3.4rem;
+    }
+
+    #blog-title {
+        font-size: 3.2rem;
+        line-height: 3rem;
+    }
+
+    #mk::after {
+        top: 5.4rem;
+    }
+}
+
+@media only screen and (max-width: 840px){
+    #mk {
+        font-size: 2.6rem;
+    }
+
+    #blog-title {
+        font-size: 2.6rem;
+        line-height: 2rem;
+    }
+
+    #mk::after {
+        top: 4.5rem;
+    }
+}
+
