@@ -6,6 +6,11 @@
     src: url(../assets/fonts/cleanup.ttf);
 }
 
+#myThreeJsCanvas {
+    background-image: radial-gradient(rgb(34, 40, 66),black);
+    background-repeat: no-repeat;
+}
+
 /* top nav bar and title */
 .navbar-container {
     font-family: cleanUp;

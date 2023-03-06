@@ -29,6 +29,7 @@ export default class SceneInit {
 
   // initialise method
   initialize() {
+
     // create scene
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(
@@ -38,54 +39,43 @@ export default class SceneInit {
       3000
     );
 
+
     // camera position (specific to my scene, change here if needed) - Mat Kennedy
     // track out
-    this.camera.position.z = 400;
+    this.camera.position.z = 600;
     // raise
-    this.camera.position.y = 200;
+    this.camera.position.y = 400;
+
+    
 
     // grab HTML canvas passed in to instantiation
     const canvas = document.getElementById(this.canvasId);
+    
+
+    // renderer
     this.renderer = new THREE.WebGLRenderer({
       canvas,
       // smooth edges
       antialias: true,
     });
     // set renderer background color
-    this.renderer.setClearColor(0x111111, 1);
+    this.renderer.setClearColor(0x111111, 0); // transparent (second arg), background is css
     // set renderer to client size as well as camera
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     // append the renderer dom element to the html body
     document.body.appendChild(this.renderer.domElement);
 
+
     // create clock
     this.clock = new THREE.Clock();
     // create orbit controls
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+    this.controls.minDistance = 500;
+    this.controls.maxDistance = 1500;
     // create status UI
     this.stats = Stats();
     // append stats UI
     document.body.appendChild(this.stats.dom);
-
-    // ambient light which is for the whole scene
-    this.ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
-    this.ambientLight.castShadow = true;
-    this.ambientLight.position.set(0, 90, 0);
-    this.scene.add(this.ambientLight);
-
-    // directional light 1 - front right
-    this.directionalLight = new THREE.DirectionalLight(0x4488aa, 3);
-    this.directionalLight.position.set(40, 200, 300);
-    this.directionalLight.castShadow = true;
-    this.scene.add(this.directionalLight);
-
-    // helpers
-    // camera helper
-    const cameraHelper = new THREE.CameraHelper(this.camera)
-    this.scene.add(cameraHelper);
-    // directional light helper
-    const directionalLight1Helper = new THREE.DirectionalLightHelper(this.directionalLight, 5)
-    this.scene.add(directionalLight1Helper);
 
     // if window resizes
     window.addEventListener('resize', () => this.onWindowResize(), false);
@@ -98,7 +88,7 @@ export default class SceneInit {
     window.requestAnimationFrame(this.animate.bind(this));
     this.render();
     this.stats.update();
-    this.controls.update();
+    // this.controls.update();
   }
 
   render() {
