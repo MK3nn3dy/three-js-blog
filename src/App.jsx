@@ -9,8 +9,13 @@ import Navbar from './components/Navbar';
 import ModelDescription from './components/ModelDescription';
 
 function App() {
+
+  // this is where useEffect will grab blog posts using graphQL and update redux state with posts
+  // this will then be used by the ModelDescriptionComponent
+
   // when component renders, call SceneInit passing in HTML canvas
   useEffect(() => {
+
     const test = new SceneInit('myThreeJsCanvas');
     // call initialize and animate for first time
     test.initialize();
