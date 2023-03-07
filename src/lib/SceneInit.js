@@ -21,6 +21,7 @@ export default class SceneInit {
     this.clock = undefined;
     this.stats = undefined;
     this.controls = undefined;
+    this.mixer = undefined; // mixer for second models animation
 
     // lighting
     this.ambientLight = undefined;
@@ -66,6 +67,7 @@ export default class SceneInit {
     document.body.appendChild(this.renderer.domElement);
 
 
+
     // create clock
     this.clock = new THREE.Clock();
     // create orbit controls
@@ -89,6 +91,11 @@ export default class SceneInit {
     this.render();
     this.stats.update();
     // this.controls.update();
+    // if there's a mixer, update it
+    const delta = this.clock.getDelta(); 
+    if(this.mixer){
+      this.mixer.update(delta);
+    }
   }
 
   render() {

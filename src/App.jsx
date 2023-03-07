@@ -5,9 +5,6 @@ import ThreeComponent from './components/ThreeComponent';
 
 function App() {
 
-
-
-
   return (
     <div>
       <Navbar />
