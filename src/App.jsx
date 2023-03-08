@@ -2,6 +2,7 @@
 import Navbar from './components/Navbar';
 import ModelDescription from './components/ModelDescription';
 import ThreeComponent from './components/ThreeComponent';
+import PlanetSlider from './components/PlanetSlider';
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
       <Navbar />
       <ThreeComponent />
       <ModelDescription />
+      <PlanetSlider />
     </div>
   );
 }

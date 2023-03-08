@@ -115,6 +115,64 @@
     border-left: .6rem solid black;
 }
 
+/* planet slider */
+
+.slider-component {
+    position: fixed;
+    height: auto;
+    width: auto;
+    right: 1rem;
+    top: 2rem;
+}
+
+#planet-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: .2rem;
+    border-radius: .25rem;
+    width: 8rem;
+    background-color: rgb(118, 200, 214);
+}
+
+#planet-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 36px;
+    height: 36px;
+    background-image: url('../assets/images/SaturnThumb.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+/* slide to animate text */
+.slide-to-animate {
+    position: absolute;
+    width: 100%;
+    font-size: 1.4rem;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(156, 214, 236);
+    font-family: cleanUp;
+    bottom: -3rem;
+    animation: textFlash 2s linear infinite;
+}
+
+/* Slide to animate fade in and out */
+@keyframes textFlash {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 /* queries */
 
 /* Description panel moves from side to bottom below certain width and height */

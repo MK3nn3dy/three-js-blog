@@ -1,5 +1,6 @@
 // imports
 import * as THREE from 'three';
+import { DirectionalLightHelper } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import Stats from 'three/examples/jsm/libs/stats.module';
 
@@ -67,17 +68,27 @@ export default class SceneInit {
     document.body.appendChild(this.renderer.domElement);
 
 
+    // basic light
+    this.directionalLight = new THREE.DirectionalLight(0x6666ff, 0.2);
+    this.directionalLight.position.set(0, 1000, 0);
+    this.scene.add(this.directionalLight);
+
+
+    // light helper
+    // let helper = new DirectionalLightHelper(this.directionalLight);
+    // this.scene.add(helper)
+
 
     // create clock
     this.clock = new THREE.Clock();
     // create orbit controls
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-    this.controls.minDistance = 500;
+    this.controls.minDistance = 350;
     this.controls.maxDistance = 1500;
-    // create status UI
-    this.stats = Stats();
+    // create status UI if needed:
+    // this.stats = Stats();
     // append stats UI
-    document.body.appendChild(this.stats.dom);
+    // document.body.appendChild(this.stats.dom);
 
     // if window resizes
     window.addEventListener('resize', () => this.onWindowResize(), false);
@@ -89,13 +100,15 @@ export default class SceneInit {
   animate() {
     window.requestAnimationFrame(this.animate.bind(this));
     this.render();
-    this.stats.update();
+    // this.stats.update();
     // this.controls.update();
     // if there's a mixer, update it
-    const delta = this.clock.getDelta(); 
-    if(this.mixer){
-      this.mixer.update(delta);
-    }
+    // const delta = this.clock.getDelta();
+    // commented this out so mixer doesn't update animation automatically
+    // it will be done by slider in UI
+    // if(this.mixer){
+    //   this.mixer.update(delta);
+    // }
   }
 
   render() {
