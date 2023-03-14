@@ -37,7 +37,7 @@ const createPerceptronControls = (mainScene, perceptronModel) => {
     ]
 
     // Button arrays (indexes match camera position arrays for use in loops)
-    let buttonNames = ["perceptron", "input layer", "hidden layers", "weights & biases", "activation function", "output layers"]
+    let buttonNames = ["description", "input layer", "hidden layers", "weights & biases", "activation function", "output layers"]
     let buttonValues = ["wide", "input", "hidden", "wb", "activation", "output"];
 
     // loops to create buttons and listeners

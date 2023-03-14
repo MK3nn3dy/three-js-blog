@@ -79,13 +79,24 @@
     justify-content: start;
     padding: 0rem;
     z-index: 2;
+    transition: height .5s;
 }
 
-.hide-show-description {
+#hide-show-description {
     cursor: pointer;
     position: absolute;
     top: 1rem;
     right: 1rem;
+}
+
+.down-arrow {
+    border: .5rem solid transparent;
+    border-top: .5rem solid black;
+}
+
+.up-arrow {
+    border: .5rem solid transparent;
+    border-bottom: .5rem solid black;
 }
 
 /* util rulesets for shown / hidden description */

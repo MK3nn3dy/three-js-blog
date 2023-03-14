@@ -38,7 +38,7 @@ const ModelDescription = () => {
 
             <div className="model-description-panel">
 
-                    <div className="hide-show-description" onClick={handleShowHide}>{ visible ? "hide" : "show" }</div>
+                    <div id="hide-show-description" className={visible ? "down-arrow" : "up-arrow"} onClick={handleShowHide}></div>
 
                     <h3 className="model-title"><div id="moveLeft" onClick={handleMoveLeft}></div>{statePosts[currentPost].title}<div id="moveRight" onClick={handleMoveRight}></div></h3>
 
