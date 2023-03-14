@@ -1,11 +1,40 @@
-/* App.css deleted, will do all styling in index.css - Mat Kennedy */
-
 /* fonts */
 @font-face {
     font-family: cleanUp;
     src: url(../assets/fonts/cleanup.ttf);
 }
 
+/* preloader */
+#preloader {
+    position: fixed;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(19, 19, 29);
+    z-index: 9999;
+    transition: opacity 1s;
+}
+#preloader-spinner {
+    position: absolute;
+    height: 5rem;
+    width: 5rem;
+    border-top: 2px solid bisque;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* preloader spin animation */
+@keyframes spin {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+/* canvas */
 #myThreeJsCanvas {
     background-image: radial-gradient(rgb(34, 40, 66),black);
     background-repeat: no-repeat;
@@ -41,18 +70,32 @@
 
 
 /* Model Description Modal */
-
 .model-description-panel-container {
     position: fixed;
     bottom: 0;
     width: 30rem;
-    height: 30rem;
     display: grid;
     align-items: center;
     justify-content: start;
     padding: 0rem;
-    padding-bottom: 2rem;
     z-index: 2;
+}
+
+.hide-show-description {
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+/* util rulesets for shown / hidden description */
+.description-showing {
+    height: 30rem;
+}
+
+.description-hidden {
+    height: 4rem !important;
+    min-height: 0 !important;
 }
 
 .model-description-panel {
@@ -115,9 +158,8 @@
     border-left: .6rem solid black;
 }
 
-/* planet slider */
-
-.slider-component {
+/* planet slider and perceptron buttons */
+.slider-component, #pButtonsContainer {
     position: fixed;
     height: auto;
     width: auto;
@@ -145,8 +187,23 @@
     cursor: pointer;
 }
 
-/* slide to animate text */
-.slide-to-animate {
+#pButtonsPanel {
+    background-color: black;
+    color: bisque;
+    border: 1px solid bisque;
+    border-radius: 2px;
+    padding: .2rem;
+    font-family: cleanUp;
+    font-size: 1.4rem;
+}
+
+.perceptron-view-button {
+    background-color: black;
+    color: bisque;
+}
+
+/* slide to animate and perceptron learn more text */
+.slide-to-animate , .perceptronLearnMore{
     position: absolute;
     width: 100%;
     font-size: 1.4rem;

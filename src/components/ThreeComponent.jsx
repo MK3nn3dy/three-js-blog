@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import SceneInit from '../lib/SceneInit';
 import { GUI } from 'dat.gui';
-import loadModels from '../utils/loadModels';
-import { useSelector } from 'react-redux';
+import loadModels from '../lib/loadModels';
+import { current } from '@reduxjs/toolkit';
 
 const ThreeComponent = () => {
 
@@ -24,7 +24,7 @@ const ThreeComponent = () => {
         let nextArrow = document.getElementById('moveRight');
         nextArrow.addEventListener('click', (e) => {
             // if reach .length -1, go to 0
-            if(currentPost === modelsArray.length -1){
+            if(currentPost === 2){
                 setCurrentPost(currentPost = 0);
             } else {
                 setCurrentPost(currentPost += 1);
@@ -34,13 +34,22 @@ const ThreeComponent = () => {
                 mainScene.scene.remove(model);
             })
             mainScene.scene.add(modelsArray[currentPost])
+            // reset controls
+            mainScene.controls.reset();
+            if(currentPost == 2){
+                mainScene.controls.enablePan = false;
+                mainScene.controls.minDistance = 80;
+            } else {
+                mainScene.controls.enablePan = true;
+                mainScene.controls.minDistance = 350;
+            }
         })
 
         let prevArrow = document.getElementById('moveLeft');
         prevArrow.addEventListener('click', (e) => {
             // if reach 0 go to .length - 1
             if(currentPost === 0){
-                setCurrentPost(currentPost = modelsArray.length -1);
+                setCurrentPost(currentPost = 2);
             } else {
                 setCurrentPost(currentPost -= 1);
             }
@@ -49,12 +58,21 @@ const ThreeComponent = () => {
                 mainScene.scene.remove(model);
             })
             mainScene.scene.add(modelsArray[currentPost]);
+            // reset controls
+            mainScene.controls.reset();
+            if(currentPost == 2){
+                mainScene.controls.enablePan = false;
+                mainScene.controls.minDistance = 80;
+            } else {
+                mainScene.controls.enablePan = true;
+                mainScene.controls.minDistance = 350;
+            }
         })
     
         // initialise dat.gui if needed
         // const gui = new GUI();
 
-    }, []); // currentPost in dependency array to access updated state within useEffect
+    }, []);
     
     return (
         

@@ -1,5 +1,6 @@
 // imports
 import * as THREE from 'three';
+import * as TWEEN from '@tweenjs/tween.js';
 import { DirectionalLightHelper } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import Stats from 'three/examples/jsm/libs/stats.module';
@@ -22,7 +23,8 @@ export default class SceneInit {
     this.clock = undefined;
     this.stats = undefined;
     this.controls = undefined;
-    this.mixer = undefined; // mixer for second models animation
+    this.mixer1 = undefined; // mixer for second models animation
+    this.mixer2 = undefined; // mixer for third models animation
 
     // lighting
     this.ambientLight = undefined;
@@ -102,13 +104,16 @@ export default class SceneInit {
     this.render();
     // this.stats.update();
     // this.controls.update();
+    // get current time from clock
+    const delta = this.clock.getDelta();
     // if there's a mixer, update it
-    // const delta = this.clock.getDelta();
-    // commented this out so mixer doesn't update animation automatically
-    // it will be done by slider in UI
-    // if(this.mixer){
-    //   this.mixer.update(delta);
-    // }
+    // no auto update for mixer 1
+    // it will be updated by slider in UI
+    if(this.mixer2){
+      this.mixer2.update(delta);
+    }
+    // update tween
+    TWEEN.update();
   }
 
   render() {
