@@ -39,25 +39,25 @@ const loadModels = (mainScene) => {
     });
 
 
-    // model 2 (FBX, allows C4D animation takes)
-    const fbxloader = new FBXLoader();
-    fbxloader.load('./assets/solar-system/new-solar-system.fbx', (model) => {
+    // model 2 as glb
+    const glftloader2 = new GLTFLoader();
+    glftloader2.load('./assets/solar-system/solar-system.glb', (model) => {
 
         // function to create a slider to control orbit animation
         createPlanetSlider(mainScene, model);
         
         // push to array of models
-        model.rotateY(-30);
-        modelsArray[1] = model;
+        // model.rotateY(-30);
+        modelsArray[1] = model.scene;
     })
 
 
-    let fbxloader2 = new FBXLoader();
+    let gltfloader3 = new GLTFLoader();
     // perceptron
-    fbxloader2.load('./assets/perceptron/perceptron.fbx', (perceptronModel) => {
+    gltfloader3.load('./assets/perceptron/perceptron.glb', (perceptronModel) => {
 
         // create mixer on scene
-        mainScene.mixer2 = new THREE.AnimationMixer(perceptronModel);
+        mainScene.mixer2 = new THREE.AnimationMixer(perceptronModel.scene);
         // define animations
         const fullForwardPass = mainScene.mixer2.clipAction(perceptronModel.animations[0]);
         fullForwardPass.play();
@@ -66,8 +66,9 @@ const loadModels = (mainScene) => {
         createPerceptronControls(mainScene, perceptronModel);
 
         // push to array of models
-        modelsArray[2] = perceptronModel;
+        modelsArray[2] = perceptronModel.scene;
     })
+
 
     // return array of models to ThreeComponent.jsx
     return modelsArray;

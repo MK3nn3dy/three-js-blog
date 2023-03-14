@@ -27,7 +27,7 @@ export default class SceneInit {
     this.mixer2 = undefined; // mixer for third models animation
 
     // lighting
-    this.ambientLight = undefined;
+    this.pointLight = undefined;
     this.directionalLight = undefined;
   }
 
@@ -70,16 +70,20 @@ export default class SceneInit {
     document.body.appendChild(this.renderer.domElement);
 
 
-    // basic light
+    // city light
     this.directionalLight = new THREE.DirectionalLight(0x6666ff, 0.2);
     this.directionalLight.position.set(0, 1000, 0);
     this.scene.add(this.directionalLight);
 
+    // solar system light, initially off
+    this.pointLight = new THREE.PointLight(0xffffff, 0);
+    this.scene.add(this.pointLight);
 
-    // light helper
+    // perceptron light
+
+    // light helpers
     // let helper = new DirectionalLightHelper(this.directionalLight);
     // this.scene.add(helper)
-
 
     // create clock
     this.clock = new THREE.Clock();

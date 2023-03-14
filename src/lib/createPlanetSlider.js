@@ -2,10 +2,12 @@ import * as THREE from 'three';
 
 const createPlanetSlider = (mainScene, model) => {
 
+    console.log("The GLB of the solar system is: ", model);
+
     // create mixer on scene
-    mainScene.mixer1 = new THREE.AnimationMixer(model);
+    mainScene.mixer1 = new THREE.AnimationMixer(model.scene);
     // define animations
-    const planetSpinAnimation = mainScene.mixer1.clipAction(model.animations[1]);
+    const planetSpinAnimation = mainScene.mixer1.clipAction(model.animations[0]);
     planetSpinAnimation.play();
     // Create a slider element
     const slider = document.createElement('input');

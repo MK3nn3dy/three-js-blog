@@ -43,6 +43,11 @@ const ThreeComponent = () => {
                 mainScene.controls.enablePan = true;
                 mainScene.controls.minDistance = 350;
             }
+            if(currentPost == 1){
+                mainScene.pointLight.intensity = 1;
+            } else {
+                mainScene.pointLight.intensity = 0;
+            }
         })
 
         let prevArrow = document.getElementById('moveLeft');
@@ -66,6 +71,11 @@ const ThreeComponent = () => {
             } else {
                 mainScene.controls.enablePan = true;
                 mainScene.controls.minDistance = 350;
+            }
+            if(currentPost == 1){
+                mainScene.pointLight.intensity = 1;
+            } else {
+                mainScene.pointLight.intensity = 0;
             }
         })
     

@@ -76,3 +76,40 @@ window.addEventListener('mousemove', (event) => {
       mainScene.camera.position.x = object.x;
       mainScene.camera.position.y = object.y;
   })
+
+
+  // old code to import second model as FBX - changed to GLB for performance
+  // this required some changes to createPlanetSlider, mainly changing model to model.scene, and accessing the 0th animation instead of the 1st
+
+  // model 2 (FBX, allows C4D animation takes)
+  const fbxloader = new FBXLoader();
+  fbxloader.load('./assets/solar-system/new-solar-system.fbx', (model) => {
+
+      // function to create a slider to control orbit animation
+      createPlanetSlider(mainScene, model);
+      
+      // push to array of models
+      model.rotateY(-30);
+      modelsArray[1] = model;
+  })
+
+  // old code for importing perceptron as fbx, changed to glb for performance
+  // importing third model as fbx - no changes needed in createPerceptronConrols 
+  // as tweenCamera is called with the whole scene, just like an FBX, so no change to mainScene.scene here.
+    
+  let fbxloader2 = new FBXLoader();
+  // perceptron
+  fbxloader2.load('./assets/perceptron/perceptron.fbx', (perceptronModel) => {
+
+      // create mixer on scene
+      mainScene.mixer2 = new THREE.AnimationMixer(perceptronModel);
+      // define animations
+      const fullForwardPass = mainScene.mixer2.clipAction(perceptronModel.animations[0]);
+      fullForwardPass.play();
+
+      // function to load animation and create controls for it
+      createPerceptronControls(mainScene, perceptronModel);
+
+      // push to array of models
+      modelsArray[2] = perceptronModel;
+  }) 
