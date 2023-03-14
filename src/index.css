@@ -1,7 +1,12 @@
 /* fonts */
 @font-face {
     font-family: cleanUp;
-    src: url(../assets/fonts/cleanup.ttf);
+    src: url(/fonts/cleanup.ttf);
+}
+
+/* body overflow */
+body {
+    overflow: hidden;
 }
 
 /* preloader */

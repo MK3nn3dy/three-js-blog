@@ -1,7 +1,5 @@
 import * as THREE from 'three';
-import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
 // import utils
 import createPlanetSlider from './createPlanetSlider';
 import createPerceptronControls from './createPerceptronControls';
@@ -31,7 +29,7 @@ const loadModels = (mainScene) => {
     // load models
     // model 1 (GLTF)
     const glftLoader = new GLTFLoader();
-    glftLoader.load('./assets/city-street/city-baked.glb', (gltfScene) => {
+    glftLoader.load('/city-street/city-baked.glb', (gltfScene) => {
         // push to array of models
         modelsArray[0] = gltfScene.scene;
         // add first model
@@ -41,7 +39,7 @@ const loadModels = (mainScene) => {
 
     // model 2 as glb
     const glftloader2 = new GLTFLoader();
-    glftloader2.load('./assets/solar-system/solar-system.glb', (model) => {
+    glftloader2.load('/solar-system/solar-system.glb', (model) => {
 
         // function to create a slider to control orbit animation
         createPlanetSlider(mainScene, model);
@@ -54,7 +52,7 @@ const loadModels = (mainScene) => {
 
     let gltfloader3 = new GLTFLoader();
     // perceptron
-    gltfloader3.load('./assets/perceptron/perceptron.glb', (perceptronModel) => {
+    gltfloader3.load('/perceptron/perceptron.glb', (perceptronModel) => {
 
         // perceptron animations
         console.log("The perceptron model is: ", perceptronModel);
