@@ -29,7 +29,7 @@ const loadModels = (mainScene) => {
     // load models
     // model 1 (GLTF)
     const glftLoader = new GLTFLoader();
-    glftLoader.load('/city-street/city-baked.glb', (gltfScene) => {
+    glftLoader.load('./src/assets/city-street/city-baked.glb', (gltfScene) => {
         // push to array of models
         modelsArray[0] = gltfScene.scene;
         // add first model
@@ -39,7 +39,7 @@ const loadModels = (mainScene) => {
 
     // model 2 as glb
     const glftloader2 = new GLTFLoader();
-    glftloader2.load('/solar-system/solar-system.glb', (model) => {
+    glftloader2.load('./src/assets/solar-system/solar-system.glb', (model) => {
 
         // function to create a slider to control orbit animation
         createPlanetSlider(mainScene, model);
@@ -52,10 +52,7 @@ const loadModels = (mainScene) => {
 
     let gltfloader3 = new GLTFLoader();
     // perceptron
-    gltfloader3.load('/perceptron/perceptron.glb', (perceptronModel) => {
-
-        // perceptron animations
-        console.log("The perceptron model is: ", perceptronModel);
+    gltfloader3.load('./src/assets/perceptron/perceptron.glb', (perceptronModel) => {
 
         // create mixer on scene
         mainScene.mixer2 = new THREE.AnimationMixer(perceptronModel.scene);

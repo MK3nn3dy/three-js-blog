@@ -2,8 +2,6 @@ import * as THREE from 'three';
 
 const createPlanetSlider = (mainScene, model) => {
 
-    console.log("The GLB of the solar system is: ", model);
-
     // create mixer on scene
     mainScene.mixer1 = new THREE.AnimationMixer(model.scene);
     // define animations

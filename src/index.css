@@ -1,7 +1,7 @@
 /* fonts */
 @font-face {
     font-family: cleanUp;
-    src: url(/fonts/cleanup.ttf);
+    src: url(../src/assets/fonts/cleanup.ttf);
 }
 
 /* body overflow */
@@ -197,7 +197,7 @@ body {
     appearance: none;
     width: 36px;
     height: 36px;
-    background-image: url('../assets/images/SaturnThumb.png');
+    background-image: url('../src/assets/images/SaturnThumb.png');
     background-size: contain;
     background-repeat: no-repeat;
     cursor: pointer;
