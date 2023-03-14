@@ -90,13 +90,13 @@
 }
 
 .down-arrow {
-    border: .5rem solid transparent;
-    border-top: .5rem solid black;
+    border: .3rem solid transparent;
+    border-top: .3rem solid black;
 }
 
 .up-arrow {
-    border: .5rem solid transparent;
-    border-bottom: .5rem solid black;
+    border: .3rem solid transparent;
+    border-bottom: .3rem solid black;
 }
 
 /* util rulesets for shown / hidden description */

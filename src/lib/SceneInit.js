@@ -79,8 +79,6 @@ export default class SceneInit {
     this.pointLight = new THREE.PointLight(0xffffff, 0);
     this.scene.add(this.pointLight);
 
-    // perceptron light
-
     // light helpers
     // let helper = new DirectionalLightHelper(this.directionalLight);
     // this.scene.add(helper)

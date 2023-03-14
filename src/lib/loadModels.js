@@ -56,6 +56,9 @@ const loadModels = (mainScene) => {
     // perceptron
     gltfloader3.load('./assets/perceptron/perceptron.glb', (perceptronModel) => {
 
+        // perceptron animations
+        console.log("The perceptron model is: ", perceptronModel);
+
         // create mixer on scene
         mainScene.mixer2 = new THREE.AnimationMixer(perceptronModel.scene);
         // define animations
